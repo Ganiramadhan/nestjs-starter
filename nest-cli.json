@@ -19,6 +19,15 @@
         "tsConfigPath": "apps/auth-api/tsconfig.app.json"
       }
     },
+    "dashboard-api": {
+      "type": "application",
+      "root": "apps/dashboard-api",
+      "entryFile": "main",
+      "sourceRoot": "apps/dashboard-api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/dashboard-api/tsconfig.app.json"
+      }
+    },
     "product-api": {
       "type": "application",
       "root": "apps/product-api",

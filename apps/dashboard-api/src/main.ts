@@ -1,9 +1,9 @@
 import { NestFactory } from '@nestjs/core';
-import { ProductApiModule } from './product-api.module';
+import { DashboardApiModule } from './dashboard-api.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
-  const app = await NestFactory.create(ProductApiModule);
+  const app = await NestFactory.create(DashboardApiModule);
 
   // 🔓 Enable CORS for frontend access
   app.enableCors({
@@ -11,18 +11,18 @@ async function bootstrap() {
     credentials: true,
   });
 
-  // 📚 Swagger configuration
+  // 📚 Swagger configuration for seafood habit monitoring
   const config = new DocumentBuilder()
-    .setTitle('Seafood Product API')
-    .setDescription('API for managing seafood products')
+    .setTitle('Seafood Habit Monitoring API')
+    .setDescription('API for tracking seafood consumption habits and related data')
     .setVersion('1.0')
-    .addTag('Products')
+    .addTag('Dashboard')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api-docs', app, document); 
 
-  const port = process.env.PORT || 3001;
+  const port = process.env.PORT || 3002;
   await app.listen(port);
 
   console.log(`🚀 Server running at http://localhost:${port}`);
