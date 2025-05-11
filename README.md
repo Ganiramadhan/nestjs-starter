@@ -1,6 +1,6 @@
 # 🚀 NestJS Starter - Clean Architecture & Microservices Ready
 
-A modern NestJS starter boilerplate built with best practices in mind. Ideal for scalable backend applications with support for microservices, Swagger docs, and developer tooling.
+A modern NestJS starter boilerplate built with best practices in mind. Ideal for scalable backend applications with support for microservices, Swagger documentation, and developer tooling.
 
 ---
 
@@ -21,16 +21,16 @@ A modern NestJS starter boilerplate built with best practices in mind. Ideal for
 - **NestJS** - Scalable Node.js framework
 - **TypeORM** - ORM for PostgreSQL
 - **PostgreSQL** - Relational database
-- **JWT** - JSON Web Token for Auth
+- **JWT** - JSON Web Token for authentication
 - **Swagger** - API documentation
 - **Husky** + **Lint-Staged** - Git hooks for code quality
-- **Dotenv** - Environment config
+- **Dotenv** - Environment configuration
 
 ---
 
 ## 📁 Folder Structure Highlights
 
-\`\`\`bash
+```
 apps/
 ├── auth-api/
 │   └── src/
@@ -54,16 +54,16 @@ apps/
 │       ├── product-api.controller.ts
 │       ├── product-api.service.ts
 │       └── product-api.module.ts
-\`\`\`
+```
 
 ---
 
 ## ⚙️ Environment Setup
 
-### Create `.env` file
+### Create `.env` File
 
-\`\`\`env
-# .env
+```env
+# Server
 PORT=3000
 
 # JWT
@@ -76,7 +76,7 @@ DB_PORT=5432
 DB_USERNAME=postgres
 DB_PASSWORD=password
 DB_NAME=nestjs_db
-\`\`\`
+```
 
 ---
 
@@ -84,42 +84,42 @@ DB_NAME=nestjs_db
 
 ### 1. Clone the Repository
 
-\`\`\`bash
+```bash
 git clone https://github.com/Ganiramadhan/nestjs-starter.git
-cd aqua-vision-core
-\`\`\`
+cd nestjs-starter
+```
 
 ### 2. Install Dependencies
 
-\`\`\`bash
+```bash
 yarn install
-\`\`\`
+```
 
 ### 3. Setup Git Hooks (Husky)
 
-\`\`\`bash
+```bash
 yarn prepare
-\`\`\`
+```
 
-### 4. Run the App (Dev Mode)
+### 4. Run the App (Development Mode)
 
-\`\`\`bash
+```bash
 yarn start:auth-api:dev
 yarn start:product-api:dev
-\`\`\`
+```
 
-### 5. Access Swagger Docs
+### 5. Access Swagger Documentation
 
-[http://localhost:3000/api-docs](http://localhost:3000/api-docs)
+- [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
 
 ---
 
 ## 🔌 Microservices Ready
 
-The project is structured to support **NestJS microservices** (e.g. via TCP, Redis, NATS, etc.).
-Example microservice entry point (in \`main.ts\`):
+The project supports **NestJS microservices** (e.g., TCP, Redis, NATS, etc.).  
+Example microservice bootstrap (`main.ts`):
 
-\`\`\`ts
+```ts
 async function bootstrap() {
   const app = await NestFactory.createMicroservice(AppModule, {
     transport: Transport.TCP,
@@ -130,39 +130,38 @@ async function bootstrap() {
   });
   await app.listen();
 }
-\`\`\`
+```
 
 ---
 
 ## ✅ Scripts
 
-| Command                    | Deskripsi                        |
-|----------------------------|----------------------------------|
-| \`yarn start:auth-api:dev\`     | Jalankan `auth-api` dalam mode dev |
-| \`yarn start:product-api:dev\`  | Jalankan `product-api` dalam mode dev |
-| \`yarn start:auth-api:prod\`    | Jalankan `auth-api` dalam mode prod |
-| \`yarn start:product-api:prod\` | Jalankan `product-api` dalam mode prod |
-| \`yarn build\`               | Build untuk production          |
-| \`yarn format\`              | Format dengan Prettier          |
-| \`yarn lint\`                | Jalankan ESLint                 |
-| \`yarn prepare\`             | Setup hook Husky                |
+| Command                      | Description                        |
+|------------------------------|------------------------------------|
+| `yarn start:auth-api:dev`     | Run `auth-api` in development mode |
+| `yarn start:product-api:dev`  | Run `product-api` in development mode |
+| `yarn start:auth-api:prod`    | Run `auth-api` in production mode  |
+| `yarn start:product-api:prod` | Run `product-api` in production mode |
+| `yarn build`                  | Build for production               |
+| `yarn format`                 | Format code using Prettier         |
+| `yarn lint`                   | Run ESLint                         |
+| `yarn prepare`                | Setup Husky Git hooks              |
 
 ---
 
 ## 📦 Git Hooks
 
-This starter uses **Husky** + **Lint-Staged** to enforce quality:
+This starter uses **Husky** + **Lint-Staged** to enforce code quality:
 
 - ✅ Auto-format staged files
-- ✅ Prevent bad commits
+- ✅ Prevent committing unformatted code
 
-\`\`\`json
+```json
 // package.json
 "lint-staged": {
   "*.ts": ["eslint --fix", "prettier --write"]
 }
-\`\`\`
-
+```
 
 ---
 
