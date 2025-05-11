@@ -3,24 +3,24 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export class CreateProductDto {
   @ApiProperty({
-    example: 'Fresh Tuna',
-    description: 'The name of the seafood product',
+    example: 'Premium Chair',
+    description: 'The name of the product',
   })
   @IsNotEmpty()
   @IsString()
   name: string;
 
   @ApiPropertyOptional({
-    example: 'Premium-grade tuna caught in the Pacific Ocean',
-    description: 'A short description of the seafood product',
+    example: 'Ergonomic office chair with lumbar support',
+    description: 'A short description of the product',
   })
   @IsOptional()
   @IsString()
   description?: string;
 
   @ApiProperty({
-    example: 120000,
-    description: 'The price of the seafood product in IDR (Indonesian Rupiah)',
+    example: 750000,
+    description: 'The price of the product in IDR (Indonesian Rupiah)',
   })
   @IsNotEmpty()
   @IsNumber()

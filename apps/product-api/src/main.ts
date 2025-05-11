@@ -13,8 +13,8 @@ async function bootstrap() {
 
   // 📚 Swagger configuration
   const config = new DocumentBuilder()
-    .setTitle('Seafood Product API')
-    .setDescription('API for managing seafood products')
+    .setTitle('Product API')
+    .setDescription('API for managing products')
     .setVersion('1.0')
     .addTag('Products')
     .build();
