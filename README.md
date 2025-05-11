@@ -1,3 +1,4 @@
+
 # 🚀 NestJS Starter - Clean Architecture & Microservices Ready
 
 A modern NestJS starter boilerplate built with best practices in mind. Ideal for scalable backend applications with support for microservices, Swagger documentation, and developer tooling.
@@ -8,13 +9,14 @@ A modern NestJS starter boilerplate built with best practices in mind. Ideal for
 
 - ⚙️ Structured environment variables
 - 📄 Swagger API documentation
-- 🛣️ Short/alias import paths (`@/`)
+- 🛣️ Short/alias import paths (@/)
 - 🔒 Pre-commit checks using **Husky** + **Lint-Staged**
 - 🧩 Microservices-ready architecture
 - 🔐 Auth module with JWT
 - 🧱 Scalable modular folder structure
 - 🛢️ Support for both **TypeORM** and **Prisma** (choose your ORM)
----
+- 🔍 **ESLint** for code linting and maintaining code quality
+- 📝 **Conventional Commit** setup for standardized commit messages
 
 ## 🛠️ Tech Stack
 
@@ -159,9 +161,36 @@ This starter uses **Husky** + **Lint-Staged** to enforce code quality:
 ```json
 // package.json
 "lint-staged": {
-  "*.ts": ["eslint --fix", "prettier --write"]
-}
+    "**/*.ts": ["eslint --fix"]
+  },
 ```
+
+---
+
+## 📝 Conventional Commit Guidelines
+
+To maintain a standardized commit message format, this project follows the **Conventional Commit** specification. This helps with consistency and automating versioning and changelog generation.
+
+### Commit Types
+
+Here are the most common types of commit messages:
+
+- **feat**: A new feature.
+- **fix**: A bug fix.
+- **chore**: Routine tasks like dependency updates or build processes.
+- **docs**: Documentation updates.
+- **style**: Code formatting or style changes (no functional changes).
+- **refactor**: Code changes that neither fix bugs nor add features but improve the codebase.
+- **test**: Adding or modifying tests.
+
+### Examples
+
+- `feat(auth): add JWT authentication`
+- `fix(auth): resolve token expiration issue`
+- `docs(readme): update installation guide`
+- `chore(deps): update prisma version`
+
+For more details, please refer to the [Conventional Commits Specification](https://www.conventionalcommits.org/).
 
 ---
 
