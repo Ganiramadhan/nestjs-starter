@@ -6,15 +6,14 @@ A modern NestJS starter boilerplate built with best practices in mind. Ideal for
 
 ## ✨ Features
 
-- ✅ Structured environment variables
-- ✅ Swagger API documentation
-- ✅ Short/alias import paths (`@/`)
-- ✅ Pre-commit checks using **Husky** + **Lint-Staged**
-- ✅ Microservices-ready architecture
-- ✅ Auth module with JWT
-- ✅ Scalable modular folder structure
-- ✅ Support for both **TypeORM** and **Prisma** (choose your ORM)
-
+- ⚙️ Structured environment variables
+- 📄 Swagger API documentation
+- 🛣️ Short/alias import paths (`@/`)
+- 🔒 Pre-commit checks using **Husky** + **Lint-Staged**
+- 🧩 Microservices-ready architecture
+- 🔐 Auth module with JWT
+- 🧱 Scalable modular folder structure
+- 🛢️ Support for both **TypeORM** and **Prisma** (choose your ORM)
 ---
 
 ## 🛠️ Tech Stack
