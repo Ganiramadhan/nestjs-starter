@@ -13,6 +13,7 @@ A modern NestJS starter boilerplate built with best practices in mind. Ideal for
 - ✅ Microservices-ready architecture
 - ✅ Auth module with JWT
 - ✅ Scalable modular folder structure
+- ✅ Support for both **TypeORM** and **Prisma** (choose your ORM)
 
 ---
 
