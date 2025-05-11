@@ -1,3 +1,4 @@
+// TS CONFIG 
 {
   "compilerOptions": {
     "module": "commonjs",
