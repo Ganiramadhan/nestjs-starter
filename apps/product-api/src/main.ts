@@ -1,31 +1,47 @@
 import { NestFactory } from '@nestjs/core';
 import { ProductApiModule } from './product-api.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { Logger, ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(ProductApiModule);
 
-  // 🔓 Enable CORS for frontend access
+  // 🌍 Enable CORS
   app.enableCors({
-    origin: 'http://localhost:3000', 
+    origin: 'http://localhost:3000',
     credentials: true,
   });
 
-  // 📚 Swagger configuration
-  const config = new DocumentBuilder()
-    .setTitle('Product API')
-    .setDescription('API for managing products')
-    .setVersion('1.0')
-    .addTag('Products')
-    .build();
+  // ✅ Global Pipes (Validation, Sanitization, dll)
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+    }),
+  );
 
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api-docs', app, document); 
+  // 📚 Swagger only in development
+  if (process.env.NODE_ENV === 'development') {
+    const config = new DocumentBuilder()
+      .setTitle('Product API')
+      .setDescription('API for managing products')
+      .setVersion('1.0')
+      .addTag('Products')
+      .build();
 
-  const port = process.env.PORT || 3001;
+    const document = SwaggerModule.createDocument(app, config);
+    SwaggerModule.setup('api-docs', app, document);
+  }
+
+  // 🚀 Start server
+  const port = parseInt(process.env.PORT || '3001', 10);
   await app.listen(port);
 
-  console.log(`🚀 Server running at http://localhost:${port}`);
-  console.log(`📚 Swagger docs available at http://localhost:${port}/api-docs`);
+  const logger = new Logger('Bootstrap');
+  logger.log(`🚀 Server running on: http://localhost:${port}`);
+  if (process.env.NODE_ENV === 'development') {
+    logger.log(`📚 Swagger: http://localhost:${port}/api-docs`);
+  }
 }
 bootstrap();
